@@ -2,12 +2,8 @@ const MongoClient = require('mongodb').MongoClient
 
 const config = require('../config')
 
-module.exports = {
-    getCollection
-}
-
 // Database Name
-const dbName = 'board_db'
+const dbName = 'rello_db'
 
 var dbConn = null
 
@@ -33,6 +29,10 @@ async function connect() {
         logger.error('Cannot Connect to DB', err)
         throw err
     }
+}
+
+module.exports = {
+    getCollection
 }
 
 
