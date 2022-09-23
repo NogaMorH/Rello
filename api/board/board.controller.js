@@ -1,9 +1,19 @@
 const logger = require('../../services/logger.service')
 const boardService = require('./board.service')
 
-async function getBoard(req, res) {
+async function getMiniBoards(req, res) {
     try {
-        const board = await boardService.query(req.params.id)
+        const miniBoards = await boardService.query()
+        res.send(miniBoards)
+    } catch (err) {
+        logger.error('Cannot get boards', err)
+        res.status(500).send({ error: 'Failed to get boards' })
+    }
+}
+
+async function getBoardById(req, res) {
+    try {
+        const board = await boardService.getBoardById(req.params.id)
         res.send(board)
     } catch (err) {
         logger.error('Cannot get board', err)
@@ -25,8 +35,34 @@ async function removeBoard(req, res) {
     }
 }
 
+async function addBoard(req, res) {
+
+    try {
+        var board = req.body
+        await boardService.add(board)
+        res.send({ msg: 'Added board successfully' })
+    } catch (err) {
+        logger.error('Failed to add board', err)
+        res.status(500).send({ err: 'Failed to add board' })
+    }
+}
+
+async function updateBoard(req, res) {
+    try {
+        const board = req.body
+        await boardService.update(board)
+        res.json({ msg: 'Updated board successfully' })
+    } catch (err) {
+        logger.error('Failed to update board', err)
+        res.status(500).send({ err: 'Failed to update board' })
+
+    }
+}
 
 module.exports = {
-    getBoard,
-    removeBoard
+    getMiniBoards,
+    getBoardById,
+    removeBoard,
+    addBoard,
+    updateBoard
 }

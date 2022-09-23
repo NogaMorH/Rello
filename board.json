@@ -1,0 +1,350 @@
+{
+    "title": "Trello-Sprint 4",
+    "isStarred": false,
+    "labels": [
+        {
+            "id": "l101",
+            "title": "Work in progress",
+            "color": "#F5DD29"
+        },
+        {
+            "id": "l102",
+            "title": "One more step",
+            "color": "#FFAF3F"
+        },
+        {
+            "id": "l103",
+            "title": "Priority",
+            "color": "#EF7564"
+        },
+        {
+            "id": "l104",
+            "title": "Extra",
+            "color": "#CD8DE5"
+        },
+        {
+            "id": "l105",
+            "title": "Trello Tip",
+            "color": "#29CCE5"
+        },
+        {
+            "id": "l106",
+            "title": "Help",
+            "color": "#6DECA9"
+        }
+    ],
+    "groups": [
+        {
+            "id": "g101",
+            "title": "Demos",
+            "createdAt": {
+                "$numberLong": "1663156800000"
+            },
+            "style": {
+                "color": "#EF7564"
+            },
+            "tasks": [
+                {
+                    "id": "t101",
+                    "title": "Demo 1",
+                    "dueDate": {
+                        "$numberLong": "1663480800000"
+                    },
+                    "attachments": [
+                        {
+                            "name": "React",
+                            "url": "https://trello.com/1/cards/632603fbf6acc8003771698a/attachments/632604094ac46301cd75ec3c/download/600b72f9-react-1024x680.png",
+                            "isCover": true
+                        },
+                        {
+                            "name": "Attachment",
+                            "url": "https://www.pngitem.com/pimgs/m/520-5208614_curso-programacin-front-end-completo-transparent-html-css.png",
+                            "isCover": false
+                        },
+                        {
+                            "name": "Attachment",
+                            "url": "https://css-tricks.com/",
+                            "isCover": false
+                        }
+                    ],
+                    "description": "Demo Meeting with Asaf and Yaron. \nDon't forget to come in a good mood 😎",
+                    "checklists": [
+                        {
+                            "id": "YEhmF",
+                            "title": "Tasks",
+                            "todos": [
+                                {
+                                    "id": "212jX",
+                                    "title": "Home",
+                                    "isDone": false
+                                },
+                                {
+                                    "id": "212fX",
+                                    "title": "UI Design",
+                                    "isDone": false
+                                },
+                                {
+                                    "id": "212dX",
+                                    "title": "JSON data",
+                                    "isDone": true
+                                },
+                                {
+                                    "id": "212bX",
+                                    "title": "CRUDL",
+                                    "isDone": false
+                                },
+                                {
+                                    "id": "212cX",
+                                    "title": "Basic Board - members/attachments",
+                                    "isDone": false
+                                },
+                                {
+                                    "id": "212yX",
+                                    "title": "Templates",
+                                    "isDone": false
+                                }
+                            ]
+                        },
+                        {
+                            "id": "YEhdF",
+                            "title": "Good Vibes😎",
+                            "todos": [
+                                {
+                                    "id": "212js",
+                                    "title": "no stress",
+                                    "isDone": false
+                                },
+                                {
+                                    "id": "212hs",
+                                    "title": "confidence",
+                                    "isDone": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "t102",
+                    "title": "Demo 2",
+                    "dueDate": {
+                        "$numberLong": "1663840800000"
+                    },
+                    "description": ""
+                },
+                {
+                    "id": "t103",
+                    "title": "Demo 3",
+                    "dueDate": {
+                        "$numberLong": "1664439300000"
+                    },
+                    "description": ""
+                }
+            ]
+        },
+        {
+            "id": "g102",
+            "title": "Finish by 4pm",
+            "style": {},
+            "tasks": [
+                {
+                    "id": "t104",
+                    "title": "Create Trello diagram",
+                    "dueDate": {
+                        "$numberLong": "1663160400000"
+                    },
+                    "description": "",
+                    "labelIds": [
+                        "l101",
+                        "l103"
+                    ]
+                },
+                {
+                    "id": "t105",
+                    "title": "Create demo data in JSON",
+                    "dueDate": {
+                        "$numberLong": "1663160400000"
+                    },
+                    "description": "",
+                    "labelIds": [
+                        "l101",
+                        "l103"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "g103",
+            "title": "Design",
+            "style": {},
+            "tasks": [
+                {
+                    "id": "t106",
+                    "title": "Css tricks",
+                    "description": "",
+                    "attachments": [
+                        {
+                            "name": "Attachment",
+                            "url": "https://css-tricks.com/",
+                            "isCover": false
+                        }
+                    ],
+                    "labelIds": [
+                        "l104"
+                    ]
+                },
+                {
+                    "id": "t107",
+                    "title": "Color Palette variables",
+                    "description": "",
+                    "labelIds": [
+                        "l101"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "g104",
+            "title": "Backlog - client",
+            "style": {},
+            "tasks": [
+                {
+                    "id": "t108",
+                    "title": "Create components",
+                    "description": "",
+                    "labelIds": [
+                        "l104"
+                    ],
+                    "attachments": [
+                        {
+                            "name": "Attachment",
+                            "url": "https://css-tricks.com/",
+                            "isCover": false
+                        }
+                    ],
+                    "checklists": [
+                        {
+                            "id": "YEhwF",
+                            "title": "Home",
+                            "todos": [
+                                {
+                                    "id": "212j2",
+                                    "title": "Header",
+                                    "isDone": false
+                                },
+                                {
+                                    "id": "212f2",
+                                    "title": "home-links",
+                                    "isDone": false
+                                },
+                                {
+                                    "id": "212d2",
+                                    "title": "demonstration",
+                                    "isDone": false
+                                },
+                                {
+                                    "id": "212b2",
+                                    "title": "footer",
+                                    "isDone": false
+                                }
+                            ]
+                        },
+                        {
+                            "id": "YEhmF",
+                            "title": "Board",
+                            "todos": [
+                                {
+                                    "id": "212j3",
+                                    "title": "board-header",
+                                    "isDone": false
+                                },
+                                {
+                                    "id": "212f3",
+                                    "title": "sidebar",
+                                    "isDone": false
+                                },
+                                {
+                                    "id": "212d3",
+                                    "title": "grout-list",
+                                    "isDone": false
+                                },
+                                {
+                                    "id": "212b3",
+                                    "title": "group preview",
+                                    "isDone": false
+                                },
+                                {
+                                    "id": "212s3",
+                                    "title": "task list",
+                                    "isDone": false
+                                },
+                                {
+                                    "id": "212o3",
+                                    "title": "task preview",
+                                    "isDone": false
+                                },
+                                {
+                                    "id": "212l3",
+                                    "title": "task details",
+                                    "isDone": false
+                                },
+                                {
+                                    "id": "212w3",
+                                    "title": "filter",
+                                    "isDone": false
+                                }
+                            ]
+                        },
+                        {
+                            "id": "YEhvF",
+                            "title": "Login/Signup",
+                            "todos": [
+                                {
+                                    "id": "212j4",
+                                    "title": "login",
+                                    "isDone": false
+                                }
+                            ]
+                        },
+                        {
+                            "id": "YEhdF",
+                            "title": "User Profile",
+                            "todos": [
+                                {
+                                    "id": "212j4",
+                                    "title": "Header(navbar)",
+                                    "isDone": false
+                                },
+                                {
+                                    "id": "212f4",
+                                    "title": "edit-details",
+                                    "isDone": false
+                                },
+                                {
+                                    "id": "212d4",
+                                    "title": "hero",
+                                    "isDone": false
+                                }
+                            ]
+                        },
+                        {
+                            "id": "YEhsF",
+                            "title": "Templates",
+                            "todos": [
+                                {
+                                    "id": "212j5",
+                                    "title": "template-list",
+                                    "isDone": false
+                                },
+                                {
+                                    "id": "212f5",
+                                    "title": "template-preview",
+                                    "isDone": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

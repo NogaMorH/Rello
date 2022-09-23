@@ -2,54 +2,35 @@ const dbService = require('../../services/db.service')
 const logger = require('../../services/logger.service')
 const ObjectId = require('mongodb').ObjectId
 
-async function query(boardId) {
+async function query() {
     try {
         const collection = await dbService.getCollection('board')
-        const board = await collection.findOne({ _id: ObjectId(boardId) })
-
-        // var boards = await collection.aggregate([
-        //     {
-        //         $match: criteria
-        //     },
-        //     {
-        //         $lookup:
-        //         {
-        //             localField: 'byUserId',
-        //             from: 'user',
-        //             foreignField: '_id',
-        //             as: 'byUser'
-        //         }
-        //     },
-        //     {
-        //         $unwind: '$byUser'
-        //     },
-        //     {
-        //         $lookup:
-        //         {
-        //             localField: 'aboutUserId',
-        //             from: 'user',
-        //             foreignField: '_id',
-        //             as: 'aboutUser'
-        //         }
-        //     },
-        //     {
-        //         $unwind: '$aboutUser'
-        //     }
-        // ]).toArray()
-        // boards = boards.map(board => {
-        //     board.byUser = { _id: board.byUser._id, fullname: board.byUser.fullname }
-        //     board.aboutUser = { _id: board.aboutUser._id, fullname: board.aboutUser.fullname }
-        //     delete board.byUserId
-        //     delete board.aboutUserId
-        //     return board
-        // })
-        return board
+        const boards = await collection.find().toArray()
+        const miniBoards = boards.map(board => {
+            const { _id, title, isStarred } = board
+            return {
+                _id,
+                title,
+                isStarred
+            }
+        })
+        return miniBoards
     } catch (err) {
         logger.error('Cannot find boards in board service', err)
         throw err
     }
 }
 
+async function getBoardById(boardId) {
+    try {
+        const collection = await dbService.getCollection('board')
+        const board = await collection.findOne({ _id: ObjectId(boardId) })
+        return board
+    } catch (err) {
+        logger.error('Cannot find boards in board service', err)
+        throw err
+    }
+}
 
 async function remove(boardId) {
     try {
@@ -63,7 +44,34 @@ async function remove(boardId) {
     }
 }
 
+async function add(board) {
+    try {
+        const collection = await dbService.getCollection('board')
+        await collection.insertOne(board)
+        return { msg: 'Added board successfully' }
+    } catch (err) {
+        logger.error('Cannot insert board', err)
+        throw err
+    }
+}
+
+async function update(board) {
+    try {
+        var id = ObjectId(board._id)
+        delete board._id
+        const collection = await dbService.getCollection('board')
+        await collection.updateOne({ _id: id }, { $set: { ...board } })
+        return { msg: 'Board updated successfully' }
+    } catch (err) {
+        logger.error(`Cannot update board ${id}`, err)
+        throw err
+    }
+}
+
 module.exports = {
     query,
-    remove
+    getBoardById,
+    remove,
+    add,
+    update
 }
