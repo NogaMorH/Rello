@@ -45,8 +45,8 @@ async function deleteUser(req, res) {
 async function addUser(req, res) {
     try {
         const user = req.body
-        await userService.add(user)
-        res.send({ msg: 'User added successfully' })
+        const savedUser = await userService.add(user)
+        res.send(savedUser)
     } catch (err) {
         logger.error('Failed to add user', err)
         res.status(500).send({ err: 'Failed to add user' })

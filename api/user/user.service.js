@@ -59,9 +59,20 @@ async function add(user) {
     try {
         const collection = await getUserCollection()
         await collection.insertOne(user)
-        return { msg: 'User added successfully' }
+        return user
     } catch (err) {
         logger.error('Cannot insert user', err)
+        throw err
+    }
+}
+
+async function getByUsername(username) {
+    try {
+        const collection = await getUserCollection()
+        const user = await collection.findOne({ username })
+        return user
+    } catch (err) {
+        logger.error(`Error while finding user by username: ${username}`, err)
         throw err
     }
 }
@@ -75,5 +86,6 @@ module.exports = {
     getUserById,
     update,
     remove,
-    add
-}
+    add,
+    getByUsername
+}   
