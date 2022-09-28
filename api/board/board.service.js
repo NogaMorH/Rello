@@ -7,11 +7,15 @@ async function query() {
         const collection = await getBoardCollection()
         const boards = await collection.find().toArray()
         const miniBoards = boards.map(board => {
-            const { _id, title, isStarred } = board
+            const { _id, title, isStarred, style } = board
             return {
                 _id,
                 title,
-                isStarred
+                isStarred,
+                style: {
+                    imgUrl: style.imgUrl,
+                    bgColor: style.bgColor
+                }
             }
         })
         return miniBoards
@@ -48,7 +52,8 @@ async function add(board) {
     try {
         const collection = await getBoardCollection()
         await collection.insertOne(board)
-        return { msg: 'Added board successfully' }
+        board._id = board._id.toString()
+        return board
     } catch (err) {
         logger.error('Cannot insert board', err)
         throw err

@@ -77,6 +77,17 @@ async function getByUsername(username) {
     }
 }
 
+async function getByEmail(email) {
+    try {
+        const collection = await getUserCollection()
+        const user = await collection.findOne({ email })
+        return user
+    } catch (err) {
+        logger.error(`Error while finding user by username: ${username}`, err)
+        throw err
+    }
+}
+
 async function getUserCollection() {
     return await dbService.getCollection('user')
 }
@@ -87,5 +98,6 @@ module.exports = {
     update,
     remove,
     add,
-    getByUsername
+    getByUsername,
+    getByEmail
 }   

@@ -38,8 +38,8 @@ async function removeBoard(req, res) {
 async function addBoard(req, res) {
     try {
         var board = req.body
-        await boardService.add(board)
-        res.send({ msg: 'Added board successfully' })
+        const newBoard = await boardService.add(board)
+        res.send(newBoard)
     } catch (err) {
         logger.error('Failed to add board', err)
         res.status(500).send({ err: 'Failed to add board' })
