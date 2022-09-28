@@ -29,7 +29,6 @@ async function signup({
 
     try {
         const saltRounds = 10
-        console.log('username:', username)
         const fullName = `${firstName} ${lastName}`
         logger.debug(`auth.service - signup with username: ${username}, fullName: ${fullName}`)
         if (!username || !password || !firstName || !lastName || !email) return Promise.reject('Missing required signup information')
