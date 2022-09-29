@@ -1,5 +1,6 @@
 const { Socket } = require('socket.io')
 const logger = require('./logger.service')
+const boardService = require('../api/board/board.service')
 var gIo = null
 
 function setupSocketAPI(http) {
@@ -24,6 +25,19 @@ function setupSocketAPI(http) {
             }
             socket.join(boardId)
             socket.boardId = boardId
+            logger.info(`Socket is joining board ${boardId} [id: ${socket.id}]`)
+        })
+
+        socket.on('update-board', async (boardId) => {
+            logger.info(`Update board from socket [id: ${socket.id}], emitting to board ${boardId}`)
+            // const broadcastDetails = {
+            //     type: 'update-board',
+            //     data: userService.getBoardById(boardId)},
+            //     room: socket.boardId,
+            //     userId: 
+            // }
+            const board = await boardService.getBoardById(boardId)
+            gIo.to(socket.boardId).emit('board-updated', board)
         })
 
         // socket.on('chat-send-msg', msg => {
