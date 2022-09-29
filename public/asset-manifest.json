@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.199f1ac5.css",
+    "main.js": "/static/js/main.985502e2.js",
+    "static/media/SFUIText-Bold.otf": "/static/media/SFUIText-Bold.84964764bedcaf09c239.otf",
+    "static/media/SFUIText-Medium.otf": "/static/media/SFUIText-Medium.991d8a04af41230b1281.otf",
+    "static/media/SFUIText-Light.otf": "/static/media/SFUIText-Light.f147e8e52dab4a416362.otf",
+    "static/media/home-hero.webp": "/static/media/home-hero.5d8a95ebaf70c2be680d.webp",
+    "static/media/CharlieText-Bold.ttf": "/static/media/CharlieText-Bold.eb3a81215767065765bd.ttf",
+    "static/media/CharlieDisplay-Semibold.ttf": "/static/media/CharlieDisplay-Semibold.201c3bbd088f77242610.ttf",
+    "static/media/CharlieText-Regular.ttf": "/static/media/CharlieText-Regular.3443d70ce64d7c39caf1.ttf",
+    "service-worker.js": "/service-worker.js",
+    "static/media/SecularOne-Regular.ttf": "/static/media/SecularOne-Regular.141c1f3e034514617e8b.ttf",
+    "static/media/board-logo.svg": "/static/media/board-logo.7d42c533d14a1f12c4d1b3b40c64a648.svg",
+    "static/media/home-logo.svg": "/static/media/home-logo.1ef315800ead28481db972105fff0e8d.svg",
+    "static/media/login-logo.svg": "/static/media/login-logo.6199e1f74842ff8163dde1101bfcfc1e.svg",
+    "index.html": "/index.html",
+    "main.199f1ac5.css.map": "/static/css/main.199f1ac5.css.map",
+    "main.985502e2.js.map": "/static/js/main.985502e2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.199f1ac5.css",
+    "static/js/main.985502e2.js"
+  ]
+}
