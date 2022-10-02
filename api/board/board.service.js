@@ -21,7 +21,7 @@ async function query() {
         return miniBoards
     } catch (err) {
         logger.error('Cannot find boards in board service', err)
-        throw err
+        throw new Error('Error from board service')
     }
 }
 

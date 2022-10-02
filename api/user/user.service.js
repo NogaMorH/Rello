@@ -2,13 +2,16 @@ const dbService = require('../../services/db.service')
 const logger = require('../../services/logger.service')
 const ObjectId = require('mongodb').ObjectId
 
-async function query() {
+async function query(filterBy) {
     try {
+        const criteria = _buildCriteria(filterBy)
         const collection = await getUserCollection()
-        let users = await collection.find().toArray()
+        let users = await collection.find(criteria).toArray()
+        if (users.length > 8) users = users.slice(0, 8)
         users = users.map(user => {
             delete user.password
             user.createdAt = ObjectId(user._id).getTimestamp()
+            user._id = user._id.toString()
             return user
         })
         return users
@@ -23,6 +26,7 @@ async function getUserById(userId) {
         const collection = await getUserCollection()
         const user = await collection.findOne({ _id: ObjectId(userId) })
         delete user.password
+        user._id = user._id.toString()
         return user
     } catch (err) {
         logger.error(`Error while finding user by id: ${userId}`, err)
@@ -90,6 +94,15 @@ async function getByEmail(email) {
 
 async function getUserCollection() {
     return await dbService.getCollection('user')
+}
+
+function _buildCriteria({ text }) {
+    const criteria = {}
+    if (text) {
+        const txtCriteria = { $regex: text, $options: 'i' }
+        criteria.fullName = txtCriteria
+        return criteria
+    }
 }
 
 module.exports = {
