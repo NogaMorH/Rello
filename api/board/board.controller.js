@@ -7,7 +7,7 @@ async function getMiniBoards(req, res) {
         res.send(miniBoards)
     } catch (err) {
         logger.error('Cannot get boards', err)
-        res.status(500).send({ error: 'Failed to get boards' })
+        res.status(500).send(err)
     }
 }
 
